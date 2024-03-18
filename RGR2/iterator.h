@@ -12,9 +12,12 @@ public:
 	void forward();
 	void back();
 	int& get() const;
-	ksi& operator++();
-	ksi& operator--();
+	ksi operator++();
+	ksi operator--();
 	ksi& operator++(int i);
 	ksi& operator--(int i);
 	int& operator*();
+	enum class Exception {
+		OutOfRange
+	};
 };
