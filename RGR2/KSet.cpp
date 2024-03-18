@@ -50,6 +50,7 @@ kset KSet::operator&(const kset& rhs) const
 		}
 		q.push_back(*i);
 	}
+	return kset(q);
 }
 
 kset& KSet::operator&=(const kset& rhs)
@@ -70,6 +71,7 @@ kset KSet::operator/(const kset& rhs) const
 		}
 		q.push_back(*i);
 	}
+	return kset(q);
 }
 
 kset& KSet::operator/=(const kset& rhs)
