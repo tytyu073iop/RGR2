@@ -43,12 +43,14 @@ kset KSet::operator&(const kset& rhs) const
 	std::vector<int> q, w1(v), w2(rhs.v);
 	std::sort(w1.begin(), w1.end());
 	std::sort(w2.begin(), w2.end());
-	for (auto i = w1.begin(), j = w2.begin(); i != w1.end() || j != w2.end();) {
+	for (auto i = w1.begin(), j = w2.begin(); i != w1.end() && j != w2.end();) {
 		if (*i != *j) {
 			*i < *j ? i++ : j++;
 			continue;
 		}
 		q.push_back(*i);
+		i++;
+		j++;
 	}
 	return kset(q);
 }
@@ -64,12 +66,14 @@ kset KSet::operator/(const kset& rhs) const
 	std::vector<int> q, w1(v), w2(rhs.v);
 	std::sort(w1.begin(), w1.end());
 	std::sort(w2.begin(), w2.end());
-	for (auto i = w1.begin(), j = w2.begin(); i != w1.end() || j != w2.end();) {
+	for (auto i = w1.begin(), j = w2.begin(); i != w1.end() && j != w2.end();) {
 		if (*i == *j) {
 			*i < *j ? i++ : j++;
 			continue;
 		}
 		q.push_back(*i);
+		i++;
+		j++;
 	}
 	return kset(q);
 }
@@ -77,6 +81,12 @@ kset KSet::operator/(const kset& rhs) const
 kset& KSet::operator/=(const kset& rhs)
 {
 	*this = *this / rhs;
+	return *this;
+}
+
+kset& KSet::operator>>(const int& rhs)
+{
+	v.push_back(rhs);
 	return *this;
 }
 

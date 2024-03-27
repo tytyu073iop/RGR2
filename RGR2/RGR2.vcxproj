@@ -132,7 +132,9 @@
     <ClInclude Include="KSet.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="iterator.cpp" />
     <ClCompile Include="KSet.cpp" />
+    <ClCompile Include="program.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

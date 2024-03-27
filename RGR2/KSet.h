@@ -23,7 +23,7 @@ public:
 	kset& operator&=(const kset& rhs);
 	kset operator/(const kset& rhs) const;
 	kset& operator/=(const kset& rhs);
-	// kset& operator>>(const int& rhs);
+	kset& operator>>(const int& rhs);
 	friend std::ostream& operator<<(std::ostream& os, const kset& rhs);
 	size_t Size() const;
 	void Clear();
